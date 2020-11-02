@@ -53,7 +53,7 @@ hookimpl = pluggy.HookimplMarker("tox")
 
 
 @hookimpl
-def tox_addoption(parser: Parser):
+def tox_addoption(parser: Parser):  # noqa: D103
 	parser.add_testenv_attribute(
 			name="isolate_dirs",
 			type="line-list",
