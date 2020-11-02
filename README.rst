@@ -8,7 +8,6 @@ tox-isolation
 
 .. end short_desc
 
-
 .. start shields
 
 .. list-table::
@@ -16,7 +15,7 @@ tox-isolation
 	:widths: 10 90
 
 	* - Tests
-	  - |travis| |actions_windows| |actions_macos| |codefactor| |pre_commit_ci|
+	  - |travis| |actions_windows| |actions_macos| |coveralls| |codefactor| |pre_commit_ci|
 	* - PyPI
 	  - |pypi-version| |supported-versions| |supported-implementations| |wheel|
 	* - Activity
@@ -41,6 +40,10 @@ tox-isolation
 .. |requires| image:: https://requires.io/github/domdfcoding/tox-isolation/requirements.svg?branch=master
 	:target: https://requires.io/github/domdfcoding/tox-isolation/requirements/?branch=master
 	:alt: Requirements Status
+
+.. |coveralls| image:: https://img.shields.io/coveralls/github/domdfcoding/tox-isolation/master?logo=coveralls
+	:target: https://coveralls.io/github/domdfcoding/tox-isolation?branch=master
+	:alt: Coverage
 
 .. |codefactor| image:: https://img.shields.io/codefactor/grade/github/domdfcoding/tox-isolation?logo=codefactor
 	:target: https://www.codefactor.io/repository/github/domdfcoding/tox-isolation
@@ -89,6 +92,33 @@ tox-isolation
 	:alt: pre-commit.ci status
 
 .. end shields
+
+
+Usage
+----------
+
+``tox-isolation`` runs pytest tests in isolation by copying the test directory into a temporary directory
+and running the tests from there. This prevents pytest from trying to use the source files for the project,
+instead forcing it to use the version installed in the virtualenv by tox.
+
+The files copied into the temporary directory are controlled bu the ``isolate_dirs`` option in the
+``testenv`` section of ``tox.ini``. This allows the files to be customised on a per-env basis.
+If the option is undefined the isolation is disabled.
+Relative paths are taken to be relative to the current working directory.
+
+**Example:**
+
+.. code-block:: ini
+
+	# tox.ini
+
+	[testenv]
+	deps = -r{toxinidir}/tests/requirements.txt
+	commands = python -m pytest tests/ {posargs}
+	isolate_dirs = {toxinidir}/tests
+
+
+
 
 Installation
 --------------
