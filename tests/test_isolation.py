@@ -52,12 +52,19 @@ isolate_dirs = tests
 	output = output_.decode("UTF-8")
 
 	print(output)
-	assert "py36 run-test-pre: isolating test environment" in output
-	assert "py36 run-test-pre: isolating test environment" in output.splitlines()
-	assert "py37 run-test-pre: isolating test environment" in output
-	assert "py37 run-test-pre: isolating test environment" in output.splitlines()
-	assert "py38 run-test-pre: isolating test environment" in output
-	assert "py38 run-test-pre: isolating test environment" in output.splitlines()
+
+	if "py36: InterpreterNotFound: python3.6" not in output:
+		assert "py36 run-test-pre: isolating test environment" in output
+		assert "py36 run-test-pre: isolating test environment" in output.splitlines()
+
+	if "py37: InterpreterNotFound: python3.7" not in output:
+		assert "py37 run-test-pre: isolating test environment" in output
+		assert "py37 run-test-pre: isolating test environment" in output.splitlines()
+
+	if "py38: InterpreterNotFound: python3.8" not in output:
+		assert "py38 run-test-pre: isolating test environment" in output
+		assert "py38 run-test-pre: isolating test environment" in output.splitlines()
+
 	assert f"rootdir: {repo!s}" not in output
 	assert f"rootdir: {repo!s}" not in output.splitlines()
 
