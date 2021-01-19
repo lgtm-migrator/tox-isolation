@@ -15,11 +15,13 @@ tox-isolation
 	:widths: 10 90
 
 	* - Tests
-	  - |actions_linux| |actions_windows| |actions_macos| |coveralls| |codefactor| |pre_commit_ci|
+	  - |actions_linux| |actions_windows| |actions_macos| |coveralls|
 	* - Activity
 	  - |commits-latest| |commits-since| |maintained|
+	* - QA
+	  - |codefactor| |actions_flake8| |actions_mypy| |pre_commit_ci|
 	* - Other
-	  - |license| |language| |requires| |pre_commit|
+	  - |license| |language| |requires|
 
 .. |actions_linux| image:: https://github.com/domdfcoding/tox-isolation/workflows/Linux/badge.svg
 	:target: https://github.com/domdfcoding/tox-isolation/actions?query=workflow%3A%22Linux%22
@@ -32,6 +34,14 @@ tox-isolation
 .. |actions_macos| image:: https://github.com/domdfcoding/tox-isolation/workflows/macOS/badge.svg
 	:target: https://github.com/domdfcoding/tox-isolation/actions?query=workflow%3A%22macOS%22
 	:alt: macOS Test Status
+
+.. |actions_flake8| image:: https://github.com/domdfcoding/tox-isolation/workflows/Flake8/badge.svg
+	:target: https://github.com/domdfcoding/tox-isolation/actions?query=workflow%3A%22Flake8%22
+	:alt: Flake8 Status
+
+.. |actions_mypy| image:: https://github.com/domdfcoding/tox-isolation/workflows/mypy/badge.svg
+	:target: https://github.com/domdfcoding/tox-isolation/actions?query=workflow%3A%22mypy%22
+	:alt: mypy status
 
 .. |requires| image:: https://requires.io/github/domdfcoding/tox-isolation/requirements.svg?branch=master
 	:target: https://requires.io/github/domdfcoding/tox-isolation/requirements/?branch=master
@@ -60,12 +70,8 @@ tox-isolation
 	:target: https://github.com/domdfcoding/tox-isolation/commit/master
 	:alt: GitHub last commit
 
-.. |maintained| image:: https://img.shields.io/maintenance/yes/2020
+.. |maintained| image:: https://img.shields.io/maintenance/yes/2021
 	:alt: Maintenance
-
-.. |pre_commit| image:: https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white
-	:target: https://github.com/pre-commit/pre-commit
-	:alt: pre-commit
 
 .. |pre_commit_ci| image:: https://results.pre-commit.ci/badge/github/domdfcoding/tox-isolation/master.svg
 	:target: https://results.pre-commit.ci/latest/github/domdfcoding/tox-isolation/master
